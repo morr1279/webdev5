@@ -64,6 +64,21 @@
               '</table>',
               evt.feature.properties);
         });
+        
+        // add hosted feature layer
+        const nonresidentialConstructionLayer = L.esri.featureLayer({url:'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/Web5_3/FeatureServer/0?token=60jFOY4a5Hg3V8XgIM9mu1TghqTD1N9FUat-ay_1B0ugkrfk1yBAIazC9uDcyxeS8nD5BFHqPLYkOaMYfExsZixlfkjnk6a65slDV0s-0OLaZyJ2sVUFkApLi6Og-FQjReFcp9KANqOyPTTbResCyKRn6gnNSUgFHffS-yJDveHKAiJ4x1isbbUrw_mnSwjQhtgYf81jnQ79Bscs7zLVC3-A2bJv0e8s6CxoeIf9AzNya8pwIX-RruIHMCNWd0vD'}).addTo(map);
+        
+        // set up popup for nonresidentialCommercial layer
+        nonresidentialConstructionLayer.bindPopup(function(evt) {
+            return L.Utili.template(
+            '<table>'+
+               '<tr><td>CTU_NAME:</td><td>{CTU_NAME}</td></tr>'+
+                '<tr><td>BLDG_NAME:</td><td>{BLDG_NAME}</td></tr>'+
+                '<tr><td>GROUP_:</td><td>{GROUP_}</td></tr>'+ 
+              '</table>',
+              evt.feature.properties);
+        });
+        
     </script>
 </body>
 </html>
